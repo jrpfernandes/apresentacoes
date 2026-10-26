@@ -56,6 +56,7 @@ a{color:inherit}
 .grid .card:first-child{grid-column:1/-1;min-height:580px}
 .card .badge{position:absolute;top:20px;left:20px;font:400 11px "Josefin Sans",sans-serif;letter-spacing:.2em;text-transform:uppercase;padding:7px 12px;background:var(--sun)}
 .card .badge.ready{background:#2E6B55}
+.card .badge.launch{background:#1D2742;border:1px solid var(--gold);color:var(--gold)}
 .card .body{padding:30px 30px 28px;text-shadow:0 1px 8px rgba(0,0,0,.35)}
 .card small{display:block;font:400 12px "Josefin Sans",sans-serif;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
 .card h3{font-size:clamp(28px,3vw,40px);margin:8px 0 10px}
@@ -106,9 +107,9 @@ a{color:inherit}
     </div></div>
     <div class="nums">
       <div><b>5</b><small>empreendimentos</small></div>
-      <div><b>3</b><small>em pré-construção</small></div>
+      <div><b>1</b><small>em pré-lançamento</small></div>
+      <div><b>2</b><small>em pré-construção</small></div>
       <div><b>2</b><small>prontos para morar</small></div>
-      <div><b>US$ 540 mil</b><small>a partir de</small></div>
     </div>
   </div>
 </header>
@@ -117,7 +118,7 @@ a{color:inherit}
   <p class="kicker">Portfólio</p>
   <h2>Escolha o empreendimento</h2>
   <p class="lead">Cada apresentação traz a disponibilidade da tabela do incorporador, plantas, simulador de pagamento e contato direto para reservar.</p>
-  <div class="filters" id="f"><button class="on" data-k="all">Todos</button><button data-k="pre">Pré-construção</button><button data-k="ready">Pronto para morar</button></div>
+  <div class="filters" id="f"><button class="on" data-k="all">Todos</button><button data-k="launch">Pré-lançamento</button><button data-k="pre">Pré-construção</button><button data-k="ready">Pronto para morar</button></div>
   <div class="grid" id="grid">
     <a class="card" data-k="pre" data-slug="delano" href="delano/">
       <div class="bg" style="background-image:url(assets/delano.jpg)"></div>
@@ -133,9 +134,9 @@ a{color:inherit}
         <p>232 residências entregues mobiliadas, a duas quadras do mar, com aluguel de curto prazo permitido. Arquitectonica e interiores V Starr.</p>
         <div class="foot"><div><b>US$ 540 mil</b><span>a partir de · entrega prevista 2028</span></div><span class="go">Ver apresentação →</span></div></div>
     </a>
-    <a class="card" data-k="pre" data-slug="beach-house" href="beach-house/">
+    <a class="card" data-k="launch" data-slug="beach-house" href="beach-house/">
       <div class="bg" style="background-image:url(assets/beach-house.jpg)"></div>
-      <span class="badge">Pré-construção</span>
+      <span class="badge launch">Pré-lançamento</span>
       <div class="body"><small>SoLé Mia · North Miami</small><h3>Beach House</h3>
         <p>A segunda torre da Turnberry e LeFrak em SoLé Mia, com frente para a lagoa cristalina de 7 acres e 40% pagos durante a obra.</p>
         <div class="foot"><div><b>US$ 855 mil</b><span>a partir de · by Turnberry</span></div><span class="go">Ver apresentação →</span></div></div>
