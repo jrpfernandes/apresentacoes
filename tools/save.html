@@ -1,0 +1,7 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="robots" content="noindex"><title>save</title></head><body>
+<input type="file" id="f" multiple accept="image/*"><div id="s">ready</div>
+<script>
+document.getElementById('f').addEventListener('change',async e=>{const n=new URLSearchParams(location.search).get('n')||'img';const out={};let i=0;
+for(const f of e.target.files){out[n+'_'+(i++)]=await new Promise(r=>{const fr=new FileReader();fr.onload=()=>r(fr.result.split(',')[1]);fr.readAsDataURL(f)})}
+const b=new Blob([JSON.stringify(out)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='earth_'+n+'.json';document.body.appendChild(a);a.click();document.getElementById('s').textContent='saved '+i;});
+</script></body></html>
