@@ -224,6 +224,7 @@ figure{margin:0}figcaption{font-size:13px;color:var(--ink2);margin-top:8px}
 <div class="steps" id="steps"></div>
 <div class="tot" id="tot"></div>
 <p class="src">Conforme o cronograma de depósitos do incorporador. Fluxos com 40% e 30% de entrada sob consulta. Não inclui custos de fechamento.</p>
+<style>.hoabox .hoa b{white-space:normal;overflow-wrap:anywhere}@media(max-width:480px){.hoabox .hoa b{font-size:20px}}</style><div class="hoabox"><p class="kicker" style="margin-top:34px">Condomínio (HOA) estimado</p><div class="hoa"><div><small>Studio · 399–498 SF</small><b>US$ 579–722</b><small>por mês</small></div><div><small>1 quarto · 573–617 SF</small><b>US$ 831–895</b><small>por mês</small></div><div><small>2 quartos · 846–926 SF</small><b>US$ 1.227–1.343</b><small>por mês</small></div><div><small>3 quartos · 1.233 SF</small><b>US$ 1.788</b><small>por mês</small></div></div><p class="src">Estimativa de US$ 1,45 por pé² ao mês, valor que aparece nos anúncios das unidades 2113 (627 SF, US$ 910/mês) e 1904 (919 SF, US$ 1.333/mês) no MLS. O valor final depende do orçamento do condomínio aprovado pelo incorporador. Não inclui IPTU (property tax) nem seguro da unidade.</p></div>
 </div></section>
 
 <section class="agt slide" id="corretor"><div class="aw">
@@ -263,7 +264,7 @@ const COL=["#1D2742","#4A5470","#8FA6A0","#B8743F","#E8C9A6"];
 document.getElementById("bar").innerHTML=ST.map((s,i)=>'<i style="width:'+s[0]+'%;background:'+COL[i]+'"></i>').join("");
 function calc(){const u=UN.find(x=>x[0]===sel.value);const p=u[3];
 document.getElementById("steps").innerHTML=ST.map((s,i)=>'<div style="border-top:4px solid '+COL[i]+'"><b>'+s[0]+'%</b><small>'+s[1]+'</small><em>US$ '+fmt(p*s[0]/100)+'</em></div>').join("");
-document.getElementById("tot").innerHTML='<div><small>Preço · unidade '+u[0]+'</small><b>US$ '+fmt(p)+'</b></div><div><small>Durante a obra (50%)</small><b>US$ '+fmt(p*.5)+'</b></div><div><small>Na entrega (50%)</small><b>US$ '+fmt(p*.5)+'</b></div>'+
+document.getElementById("tot").innerHTML='<div><small>Preço · unidade '+u[0]+'</small><b>US$ '+fmt(p)+'</b></div><div><small>Durante a obra (50%)</small><b>US$ '+fmt(p*.5)+'</b></div><div><small>Na entrega (50%)</small><b>US$ '+fmt(p*.5)+'</b></div>'+'<div style="grid-column:1/-1;background:#fff;color:var(--ink);border:1px solid var(--line)"><small style="color:var(--sun)">Condomínio (HOA) estimado · '+fmt(u[2])+' SF</small><b>US$ '+fmt(Math.round(u[2]*1.45))+' por mês</b></div>'+
 '<div style="grid-column:1/-1;background:var(--sage);color:var(--ink)"><small style="color:var(--ink2)">Opção com 6% de desconto (50% de entrada, sem leaseback)</small><b>US$ '+fmt(p*.94)+'</b></div>'+'<a class="btn" style="grid-column:1/-1;justify-content:center" target="_blank" rel="noopener" href="'+WA+encodeURIComponent("Olá "+NM+", tenho interesse na unidade "+u[0]+" do Edge House Miami.")+'">Reservar a unidade '+u[0]+' no WhatsApp</a>'}
 sel.onchange=calc;calc();
 // lightbox
