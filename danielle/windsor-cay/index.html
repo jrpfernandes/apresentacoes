@@ -175,18 +175,7 @@ figure{margin:0}figcaption{font-size:13px;color:var(--ink2);margin-top:8px}
 <section class="slide paper"><div class="wrap">
 <p class="kicker">Vídeo</p><h2>Conheça o Windsor Cay</h2>
 <p class="lead">Vídeo oficial da Pulte Homes sobre o resort.</p>
-<div class="vid lockv" id="wcv"><div id="ytp"></div><img class="vpost" src="https://i.ytimg.com/vi/sZLe7Fumqjw/maxresdefault.jpg" alt=""><div class="vsh"></div><button class="vbig" aria-label="Assistir">▶</button><div class="vctl"><button class="vpp" aria-label="Play/pausa">▶</button><div class="vbar"><i></i></div><button class="vmu" aria-label="Som">🔊</button><button class="vfs" aria-label="Tela cheia">⛶</button></div></div>
-<script>(function(){var W=document.getElementById("wcv"),P,T,bar=W.querySelector(".vbar i"),pp=W.querySelector(".vpp");
-function st(s){W.classList.toggle("on",s===1||s===3);pp.textContent=(s===1||s===3)?"❚❚":"▶"}
-window.onYouTubeIframeAPIReady=function(){P=new YT.Player("ytp",{host:"https://www.youtube-nocookie.com",videoId:"sZLe7Fumqjw",playerVars:{controls:0,rel:0,modestbranding:1,iv_load_policy:3,playsinline:1,disablekb:1,fs:0,showinfo:0,cc_load_policy:0},events:{onStateChange:function(e){if(e.data===0){P.seekTo(0,true);P.pauseVideo();W.classList.remove("started")}st(e.data)}}})};
-var s=document.createElement("script");s.src="https://www.youtube.com/iframe_api";document.head.appendChild(s);
-function tog(){if(!P||!P.getPlayerState)return;var x=P.getPlayerState();if(x===1||x===3)P.pauseVideo();else{W.classList.add("started");P.playVideo()}}
-W.querySelector(".vsh").onclick=tog;W.querySelector(".vbig").onclick=tog;pp.onclick=tog;
-W.querySelector(".vmu").onclick=function(){if(!P)return;if(P.isMuted()){P.unMute();this.textContent="🔊"}else{P.mute();this.textContent="🔇"}};
-W.querySelector(".vfs").onclick=function(){if(document.fullscreenElement)document.exitFullscreen();else if(W.requestFullscreen)W.requestFullscreen();else if(W.webkitRequestFullscreen)W.webkitRequestFullscreen()};
-W.querySelector(".vbar").onclick=function(e){if(!P||!P.getDuration)return;var r=this.getBoundingClientRect();P.seekTo(P.getDuration()*(e.clientX-r.left)/r.width,true)};
-setInterval(function(){if(P&&P.getDuration&&P.getDuration())bar.style.width=(100*P.getCurrentTime()/P.getDuration())+"%"},400);
-W.addEventListener("contextmenu",function(e){e.preventDefault()})})();</script>
+<div class="vid"><iframe src="https://apresentacoes.celebrityglobalrealty.com/windsor-cay/video.html" title="Vídeo do Windsor Cay Resort" loading="lazy" allow="autoplay; encrypted-media; fullscreen; picture-in-picture" allowfullscreen></iframe></div>
 </div></section>
 
 <section class="slide cream" id="modelos"><div class="wrap">
