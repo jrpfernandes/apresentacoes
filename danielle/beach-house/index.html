@@ -38,6 +38,31 @@
 .loc .lb a{display:inline-flex;align-items:center;gap:8px;text-decoration:none;padding:12px 18px;border-radius:999px;font:400 12.5px "Josefin Sans",sans-serif;letter-spacing:.14em;text-transform:uppercase;border:1px solid #1D2742;color:#1D2742}
 .loc .lb a.pri{background:#1D2742;color:#fff}
 @media(max-width:860px){.loc{padding:72px 0}.loc .lw{padding:0 16px}.loc .lg{grid-template-columns:1fr;gap:28px}.loc .lm{min-height:320px}.loc figure img{aspect-ratio:4/3}.loc .ll{font-size:16.5px}}
+</style><style id="ugrid-css">
+#tabela .lead2{font-size:17px;color:var(--ink-2);margin:10px 0 22px;max-width:760px}
+.uchips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
+.uchips button{font:400 13px "Josefin Sans",sans-serif;letter-spacing:.12em;text-transform:uppercase;padding:10px 18px;border:1px solid #1D2742;background:transparent;color:#1D2742;cursor:pointer;border-radius:999px}
+.uchips button[aria-pressed="true"]{background:#1D2742;color:#fff}
+.ugrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px}
+.ucard{background:#fff;border:1px solid rgba(29,39,66,.14);border-radius:4px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.ucard .hd{background:#1D2742;color:#fff;padding:18px 22px}
+.ucard .hd small{font:400 11px "Josefin Sans",sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#E8C9A6;display:block}
+.ucard .hd b{display:block;font:300 20px/1.25 "Josefin Sans",sans-serif;text-transform:uppercase;letter-spacing:.04em;margin-top:4px}
+.ucard .hd span{display:block;font-size:13px;opacity:.78;margin-top:4px}
+.ucard .pb{display:block;width:100%;border:0;border-bottom:1px solid rgba(29,39,66,.14);background:#FBF8F1;cursor:zoom-in;padding:12px 16px 8px;text-align:left}
+.ucard .pb img{width:100%;aspect-ratio:3/2;object-fit:contain;display:block}
+.ucard .pb span{display:block;margin-top:6px;font:400 11px "Josefin Sans",sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#B8743F}
+.ucard .np{padding:14px 22px;font-size:13px;color:var(--ink-2);border-bottom:1px solid rgba(29,39,66,.14)}
+.ucard ul{padding:8px 22px 16px;margin:0;flex:1}
+.ucard li{list-style:none;display:grid;grid-template-columns:auto 1fr auto auto;gap:10px;align-items:center;padding:9px 0;border-bottom:1px solid rgba(29,39,66,.14)}
+.ucard li span{font-weight:500}.ucard li i{font-style:normal;font-size:12px;color:var(--ink-2);white-space:nowrap}
+.ucard li em{font-style:normal;color:#1D2742;font-size:14px;white-space:nowrap;text-align:right}
+.ucard li a{font:400 10px "Josefin Sans",sans-serif;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;background:#1D2742;color:#fff;padding:7px 9px;cursor:pointer}
+#pmodal{position:fixed;inset:0;background:rgba(15,23,43,.9);display:none;align-items:center;justify-content:center;z-index:80;padding:20px}
+#pmodal.on{display:flex}#pmodal figure{margin:0;max-width:1200px;width:100%;background:#fff;padding:14px;position:relative}
+#pmodal img{width:100%;max-height:78vh;object-fit:contain;display:block}#pmodal figcaption{font-size:14px;color:#4A5470;margin-top:8px}
+#pmodal .x{position:absolute;top:-34px;right:0;color:#fff;font:400 13px "Josefin Sans",sans-serif;letter-spacing:.14em;text-transform:uppercase;cursor:pointer}
+@media(max-width:480px){.ugrid{grid-template-columns:1fr}.ucard ul{padding:8px 16px 14px}.ucard li{gap:8px}}
 </style></head><body>
 <title>Beach House · Danielle Rotondo</title>
 <meta name="claude:viewport-fit-sides" content="cover">
@@ -444,31 +469,15 @@ select{font:400 16px var(--body);color:var(--ink);background:var(--paper);border
 
 <section class="slide cream" id="tabela">
   <div class="wrap">
-    <div style="display:flex;flex-wrap:wrap;gap:12px 40px;justify-content:space-between;align-items:end">
-      <div style="display:flex;flex-direction:column;gap:12px"><span class="eyebrow">Disponibilidade · 17 de outubro de 2026</span><h2>Unidades e preços</h2></div>
-      <div class="filters" role="group" aria-label="Filtrar por tipologia" id="filters"></div>
-    </div>
-    <div class="tbl"><table>
-      <thead><tr><th>Unidade</th><th>Tipologia</th><th>Banheiros</th><th class="r">Área (SF)</th><th class="r">Área (m²)</th><th class="r">Preço (US$)</th><th class="r">US$/m²</th><th>Planta</th><th>Status</th></tr></thead>
-      <tbody id="rows"></tbody>
-    </table></div>
-    <p class="hint">Toque em uma unidade para ver a planta e simular o fluxo de pagamento. Área interna conforme tabela do incorporador. 1 m² = 10,764 SF.</p>
+    <span class="eyebrow">Disponibilidade · 17 de outubro de 2026</span>
+    <h2 id="ucount">Unidades disponíveis</h2>
+    <p class="lead2">Agrupadas por planta. Toque na planta para ampliar e em "Simular" para ver a forma de pagamento.</p>
+    <div class="uchips" role="group" aria-label="Filtrar por tipologia" id="filters"></div>
+    <div class="ugrid" id="ugrid"></div>
+    <p class="hint">Preços do incorporador, sujeitos a alteração. Área interna conforme a tabela; total inclui a varanda. 1 m² = 10,764 SF.</p>
   </div>
 </section>
-
-<section class="slide paper" id="plantas">
-  <div class="wrap">
-    <span class="eyebrow">Plantas</span>
-    <h2 id="ptitle">Residence 06</h2>
-    <div class="plans">
-      <div class="plist" id="plist"></div>
-      <div>
-        <div class="pview" id="pview"></div>
-        <div class="pinfo" id="pinfo"></div>
-      </div>
-    </div>
-  </div>
-</section>
+<div id="pmodal" role="dialog" aria-modal="true"><figure><img id="pmimg" alt="Planta"><figcaption id="pmcap"></figcaption><span class="x">Fechar ✕</span></figure></div>
 
 <section class="slide sage" id="pagamento">
   <div class="wrap">
@@ -603,20 +612,19 @@ const usd=n=>"US$ "+Math.round(n).toLocaleString("pt-BR");
 const fmt=n=>Math.round(n).toLocaleString("pt-BR");
 const STEPS=[[5,"Reserva","Na assinatura da reserva"],[5,"Contrato","Dez/26 – Jan/27"],[10,"+60 dias","60 dias após o contrato"],[10,"Início da obra","No início das obras"],[10,"Última laje","Concretagem da última laje"],[60,"Entrega","À vista ou financiado"]];
 let filter="all", current=1706;
-
+const ORDER=["1Q","1QD","2Q","2QD","3QD"];
 const fEl=document.getElementById("filters");
-[["all","Todas"],...Object.entries(T)].forEach(([k,l])=>{const b=document.createElement("button");b.className="chip";b.textContent=l;b.setAttribute("aria-pressed",k===filter);b.onclick=()=>{filter=k;[...fEl.children].forEach(c=>c.setAttribute("aria-pressed",c===b));renderRows()};fEl.appendChild(b)});
-
-function renderRows(){
- const tb=document.getElementById("rows");tb.innerHTML="";
- U.filter(u=>filter==="all"||u[1]===filter).forEach(u=>{
-  const [n,t,b,sf,p,pl]=u, m2=sf*M2, tr=document.createElement("tr");
-  tr.tabIndex=0; if(n===current) tr.className="sel";
-  tr.innerHTML=`<td class="unit">${n}</td><td>${T[t]}</td><td>${b}</td><td class="r">${sf.toLocaleString("pt-BR")}</td><td class="r">${fmt(m2)}</td><td class="r">${usd(p)}</td><td class="r">${fmt(p/m2)}</td><td>${PLANS[pl].name.replace("Residence","Res.")}</td><td class="st">Disponível</td>`;
-  const go=()=>{select(n);document.getElementById("pagamento").scrollIntoView()};
-  tr.onclick=go; tr.onkeydown=e=>{if(e.key==="Enter")go()};
-  tb.appendChild(tr)});
-}
+[["all","Todas"],...Object.entries(T)].forEach(([k,l])=>{const b=document.createElement("button");b.textContent=l;b.setAttribute("aria-pressed",k===filter);b.onclick=()=>{filter=k;[...fEl.children].forEach(c=>c.setAttribute("aria-pressed",c===b));renderCards()};fEl.appendChild(b)});
+document.getElementById("ucount").textContent=U.length+" unidades disponíveis";
+const keys=PORDER.slice().sort((a,b)=>{const ta=U.find(u=>u[5]===a),tb=U.find(u=>u[5]===b);return ORDER.indexOf(ta?ta[1]:"")-ORDER.indexOf(tb?tb[1]:"")||Math.min(...U.filter(u=>u[5]===a).map(u=>u[4]))-Math.min(...U.filter(u=>u[5]===b).map(u=>u[4]))});
+function renderCards(){
+ document.getElementById("ugrid").innerHTML=keys.filter(k=>U.some(u=>u[5]===k&&(filter==="all"||u[1]===filter))).map(k=>{const P=PLANS[k];const us=U.filter(u=>u[5]===k).sort((a,b)=>a[4]-b[4]);
+  return `<article class="ucard"><div class="hd"><small>${P.name} · ${P.fl.toLowerCase()}</small><b>${P.type}</b><span>Interna ${P.int} · total c/ varanda ${P.tot}</span></div>`+(P.img?`<button class="pb" data-k="${k}"><img src="${P.img}" alt="Planta ${P.name}"><span>Ampliar planta</span></button>`:`<div class="np">Planta sob consulta</div>`)+`<ul>`+us.map(u=>`<li><span>${u[0]}</span><i>${fmt(u[3]*M2)} m²</i><em>${usd(u[4])}</em><a data-u="${u[0]}">Simular</a></li>`).join("")+`</ul></article>`}).join("")}
+const pm=document.getElementById("pmodal");
+document.addEventListener("click",e=>{const p=e.target.closest(".pb");if(p){const P=PLANS[p.dataset.k];document.getElementById("pmimg").src=P.img;document.getElementById("pmcap").textContent=P.name+" · "+P.type+" · "+P.fl+" · unidades "+U.filter(u=>u[5]===p.dataset.k).map(u=>u[0]).join(", ");pm.classList.add("on");return}
+ if(e.target.closest("#pmodal")&&!e.target.closest("#pmimg"))pm.classList.remove("on");
+ const a=e.target.closest("a[data-u]");if(a){select(+a.dataset.u);document.getElementById("pagamento").scrollIntoView({behavior:"smooth"})}});
+addEventListener("keydown",e=>{if(e.key==="Escape")pm.classList.remove("on")});
 const sel=document.getElementById("unitSel");
 U.forEach(u=>{const o=document.createElement("option");o.value=u[0];o.textContent=`${u[0]} · ${T[u[1]]} · ${usd(u[4])}`;sel.appendChild(o)});
 sel.onchange=()=>select(+sel.value);
@@ -627,18 +635,8 @@ function renderPay(){
  document.getElementById("totals").innerHTML=`<div><span class="eyebrow">Unidade ${u[0]} · ${T[u[1]]}</span><b>${usd(p)}</b></div><div><span class="eyebrow">Até o contrato (10%)</span><b>${usd(p*.10)}</b></div><div><span class="eyebrow">Durante a obra (40%)</span><b>${usd(p*.40)}</b></div>`;
  sel.value=current;
 }
-const plist=document.getElementById("plist");
-PORDER.forEach(k=>{const P=PLANS[k],b=document.createElement("button");b.dataset.k=k;b.innerHTML=`<span>${P.name.replace("Residence","Res.")}</span><span class="k">${P.type.split(" · ")[0]} · ${P.fl.replace("Andares ","")}</span>`;b.onclick=()=>showPlan(k);plist.appendChild(b)});
-function showPlan(k){
- const P=PLANS[k];
- document.getElementById("ptitle").textContent=P.name;
- document.getElementById("pview").innerHTML=P.img?`<img src="${P.img}" alt="Planta ${P.name}, ${P.fl}">`:`<div style="aspect-ratio:7/5;display:grid;place-items:center;text-align:center;padding:24px" class="muted">Planta da Residence 06 sob consulta.<br>Solicite ao seu corretor.</div>`;
- const units=U.filter(u=>u[5]===k).map(u=>u[0]).join(", ");
- document.getElementById("pinfo").innerHTML=`<span>${P.type}</span><span>${P.fl}</span><span>Interna ${P.int}</span><span>Total c/ varanda ${P.tot}</span><span>Disponíveis: ${units}</span>`;
- [...plist.children].forEach(c=>c.setAttribute("aria-pressed",c.dataset.k===k));
-}
-function select(n){current=n;renderRows();renderPay();showPlan(U.find(u=>u[0]===n)[5])}
-select(current);showPlan("R05");
+function select(n){current=n;renderPay()}
+renderCards();select(current);
 
 const slides=[...document.querySelectorAll("section.slide")];
 const cnt=document.getElementById("count");
