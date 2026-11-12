@@ -274,6 +274,7 @@ document.querySelectorAll(".rv").forEach(el=>io.observe(el));
 // background videos: play only when visible
 const vo=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;if(e.isIntersecting){if(!v.src&&v.dataset.src){v.src=v.dataset.src}v.play().catch(()=>{})}else{v.pause()}}),{threshold:.05});
 document.querySelectorAll(".bgm video").forEach(v=>{v.addEventListener("playing",()=>v.classList.add("on"));vo.observe(v)});
+const cv=document.querySelector(".cover .bgm video");if(cv&&!cv.src){cv.src=cv.dataset.src;cv.play().catch(()=>{})}
 // films
 document.querySelectorAll(".player[data-src]").forEach(p=>{p.addEventListener("click",()=>{if(p.classList.contains("playing"))return;document.querySelectorAll(".player.playing video.fgv").forEach(v=>v.pause());
  let v=p.querySelector("video.fgv");if(!v){v=document.createElement("video");v.className="fgv"+(p.dataset.fit==="contain"?" fg":"");v.controls=true;v.playsInline=true;v.src=p.dataset.src;v.style.cssText=p.dataset.fit==="contain"?"":"position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2";
