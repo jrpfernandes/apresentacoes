@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0A0F1C"/><stop offset=".55" stop-color="#16203A"/><stop offset=".69" stop-color="#3A3446"/><stop offset=".7" stop-color="#0D1322"/><stop offset="1" stop-color="#070A12"/></linearGradient>
+<linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FBEFC9"/><stop offset=".5" stop-color="#DDBE80"/><stop offset="1" stop-color="#B08A4C"/></linearGradient>
+<linearGradient id="gh" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#C9A86A" stop-opacity="0"/><stop offset=".5" stop-color="#F0D9A6"/><stop offset="1" stop-color="#C9A86A" stop-opacity="0"/></linearGradient>
+<radialGradient id="sun" cx="50%" cy="100%" r="100%"><stop offset="0" stop-color="#F8DDA6"/><stop offset=".35" stop-color="#E9B871" stop-opacity=".55"/><stop offset="1" stop-color="#E9B871" stop-opacity="0"/></radialGradient>
+<linearGradient id="fade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+<mask id="m"><rect x="0" y="358" width="512" height="120" fill="url(#fade)"/></mask>
+<path id="tw" d="M-30 0 L-30 -150 C-30 -205 -16 -238 0 -262 C16 -238 30 -205 30 -150 L30 0 Z"/>
+<clipPath id="cl"><use href="#tw"/></clipPath>
+<g id="tower">
+ <use href="#tw" fill="#0B1120"/>
+ <g stroke="#D9B979" stroke-width="1.8" opacity=".8" stroke-linecap="round">
+  <line x1="-15" y1="-208" x2="-15" y2="-6"/><line x1="0" y1="-246" x2="0" y2="-6"/><line x1="15" y1="-208" x2="15" y2="-6"/>
+ </g>
+ <use href="#tw" fill="none" stroke="url(#g)" stroke-width="5" stroke-linejoin="round"/>
+</g>
+<clipPath id="r"><rect width="512" height="512" rx="112"/></clipPath>
+</defs>
+<g clip-path="url(#r)">
+<rect width="512" height="512" fill="url(#bg)"/>
+<clipPath id="sky"><rect width="512" height="358"/></clipPath><g clip-path="url(#sky)"><ellipse cx="256" cy="360" rx="340" ry="240" fill="url(#sun)" opacity=".55"/><circle cx="256" cy="358" r="13" fill="#F6DDA8"/></g>
+<use href="#tower" transform="translate(214 358)"/>
+<use href="#tower" transform="translate(298 358)"/>
+<g mask="url(#m)"><use href="#tower" transform="translate(214 358) scale(1 -.55)"/><use href="#tower" transform="translate(298 358) scale(1 -.55)"/></g>
+<g stroke="#0C1220" stroke-width="2.5"><line x1="176" y1="372" x2="336" y2="372"/><line x1="176" y1="388" x2="336" y2="388"/><line x1="176" y1="406" x2="336" y2="406"/><line x1="176" y1="426" x2="336" y2="426"/></g>
+<g stroke="#F0D9A6" stroke-linecap="round" opacity=".55"><line x1="236" y1="368" x2="276" y2="368" stroke-width="2.5"/><line x1="244" y1="381" x2="268" y2="381" stroke-width="2"/><line x1="250" y1="396" x2="262" y2="396" stroke-width="1.6"/></g>
+<rect x="56" y="356.5" width="400" height="3" fill="url(#gh)"/>
+</g>
+<rect x="30" y="30" width="452" height="452" rx="88" fill="none" stroke="url(#g)" stroke-width="2" opacity=".6"/>
+</svg>
