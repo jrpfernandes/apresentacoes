@@ -51,6 +51,8 @@ a{color:inherit}
 .filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
 .filters button{font:400 13px "Josefin Sans",sans-serif;letter-spacing:.12em;text-transform:uppercase;padding:10px 18px;border:1px solid var(--ink);background:transparent;color:var(--ink);border-radius:999px;cursor:pointer}
 .filters button.on{background:var(--ink);color:#fff}
+.tier{margin-top:34px}.tier:first-of-type{margin-top:8px}.tier h4{font:400 12px "Josefin Sans",sans-serif;letter-spacing:.22em;text-transform:uppercase;color:var(--sun);margin:0 0 14px;display:flex;align-items:center;gap:14px}.tier h4:after{content:"";flex:1;height:1px;background:rgba(29,39,66,.14)}.tier .grid .card:first-child,.tier .grid .card:last-child:nth-child(even){grid-column:auto;min-height:520px}.tier .grid .card:first-child:nth-last-child(odd){grid-column:1/-1;min-height:560px}.grid.one{grid-template-columns:1fr}.grid.one .card{min-height:460px}
+.deep{margin-top:64px}
 .city+.city{margin-top:64px}.ch{display:flex;align-items:baseline;gap:18px;flex-wrap:wrap;border-bottom:1px solid rgba(29,39,66,.18);padding-bottom:14px;margin-bottom:26px}.ch h3{font:300 clamp(26px,3vw,36px)/1 "Josefin Sans",sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);margin:0}.ch span{font-size:15px;color:var(--ink2)}.ch b{font-weight:500;color:var(--sun)}
 .mkt{position:relative;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;padding:30px 32px;margin-bottom:44px;color:#fff;text-decoration:none;overflow:hidden;border-radius:3px;isolation:isolate;background:var(--ink)}.mkt .bg{position:absolute;inset:0;background-size:cover;background-position:center;z-index:-2}.mkt:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(15,23,43,.95),rgba(15,23,43,.55))}.mkt small{display:block;font:400 12px "Josefin Sans",sans-serif;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}.mkt b{display:block;font:200 clamp(26px,3vw,38px)/1.15 "Josefin Sans",sans-serif;text-transform:uppercase;letter-spacing:.05em;margin:6px 0}.mkt span{display:block;font-size:15px;color:rgba(255,255,255,.85);max-width:560px}.mkt em{font-style:normal;white-space:nowrap;font:400 12px "Josefin Sans",sans-serif;letter-spacing:.16em;text-transform:uppercase;border:1px solid rgba(255,255,255,.7);padding:11px 16px}
 .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px}
@@ -112,10 +114,10 @@ a{color:inherit}
       <a class="cta" href="#projetos">Ver empreendimentos ↓</a>
     </div></div>
     <div class="nums">
-      <div><b>8</b><small>empreendimentos</small></div>
-      <div><b>1</b><small>em pré-lançamento</small></div>
-      <div><b>4</b><small>em pré-construção</small></div>
-      <div><b>3</b><small>prontos para morar</small></div>
+      <div><b id="n1"></b><small>empreendimentos</small></div>
+      <div><b id="n2"></b><small>lançamentos e na planta</small></div>
+      <div><b id="n3"></b><small>em construção</small></div>
+      <div><b id="n4"></b><small>prontos para morar</small></div>
     </div>
   </div>
 </header>
@@ -127,27 +129,13 @@ a{color:inherit}
   <div class="filters" id="f"><button class="on" data-k="all">Todos</button><button data-k="launch">Pré-lançamento</button><button data-k="pre">Pré-construção</button><button data-k="build">Em construção</button><button data-k="ready">Pronto para morar</button></div>
   <div class="city" data-city="miami"><div class="ch"><h3>Miami</h3><span>Downtown, Brickell, Edgewater, Miami Beach e North Miami · <b class="cn"></b></span></div>
   <a class="mkt" data-slug="por-que-miami" href="por-que-miami/"><div class="bg" style="background-image:url(assets/og/por-que-miami.jpg)"></div><div><small>Mercado · apresentação institucional</small><b>Por que investir em Miami</b><span>Economia, conexões, impostos, qualidade de vida e quanto US$ 1 milhão compra em cada capital do mundo.</span></div><em>Ver apresentação →</em></a>
-  <div class="grid">
-    <a class="card" data-k="pre" data-slug="delano" href="delano/">
-      <div class="bg" style="background-image:url(assets/delano.jpg)"></div>
-      <span class="badge">Pré-construção</span>
-      <div class="body"><small>Downtown Miami · 400 Biscayne Blvd</small><h3>Delano Residences</h3>
-        <p>O segundo supertall de Miami: 90 andares em frente à Biscayne Bay, marca Delano, observatório público e coleção com aluguel flexível.</p>
-        <div class="foot"><div><b>US$ 755 mil</b><span>a partir de · entrega estimada 2031</span></div><span class="go">Ver apresentação →</span></div></div>
-    </a>
+  <div class="tier"><h4>A partir de US$ 500 mil</h4><div class="grid">
     <a class="card" data-k="pre" data-slug="nobe-parc" href="nobe-parc/">
       <div class="bg" style="background-image:url(assets/nobe-parc.jpg)"></div>
       <span class="badge">Pré-construção</span>
       <div class="body"><small>North Beach · Miami Beach</small><h3>NoBe PARC</h3>
         <p>232 residências entregues mobiliadas, a duas quadras do mar, com aluguel de curto prazo permitido. Arquitectonica e interiores V Starr.</p>
         <div class="foot"><div><b>US$ 540 mil</b><span>a partir de · entrega prevista 2028</span></div><span class="go">Ver apresentação →</span></div></div>
-    </a>
-    <a class="card" data-k="build" data-slug="ella" href="ella/">
-      <div class="bg" style="background-image:url(assets/ella.jpg)"></div>
-      <span class="badge">Em construção</span>
-      <div class="body"><small>North Beach · Miami Beach</small><h3>Ella Miami Beach</h3>
-        <p>Prédio boutique de 10 andares da Arquitectonica a duas quadras do mar, com aluguel de curto prazo permitido. Estrutura concluída: 30% até 60 dias e 70% na entrega.</p>
-        <div class="foot"><div><b>US$ 633 mil</b><span>a partir de · entrega prevista abril/2027</span></div><span class="go">Ver apresentação →</span></div></div>
     </a>
     <a class="card" data-k="build" data-slug="edge-house" href="edge-house/">
       <div class="bg" style="background-image:url(assets/edge-house.jpg)"></div>
@@ -156,12 +144,27 @@ a{color:inherit}
         <p>57 andares em Edgewater, mobiliado por Adriana Hoyos, com aluguel de curto prazo aprovado e leaseback do incorporador nos dois primeiros anos.</p>
         <div class="foot"><div><b>US$ 560 mil</b><span>a partir de · entrega prevista 4º tri/2028</span></div><span class="go">Ver apresentação →</span></div></div>
     </a>
-    <a class="card" data-k="build" data-slug="st-regis-sunny-isles" href="st-regis-sunny-isles/">
-      <div class="bg" style="background-image:url(assets/st-regis-sunny-isles.jpg?v=2)"></div>
-      <span class="badge">Em construção · Torre Sul</span>
-      <div class="body"><small>Sunny Isles Beach · 18801 Collins Ave</small><h3>St. Regis Residences</h3>
-        <p>Duas torres de 62 andares à beira-mar com serviço de mordomo St. Regis, spa de andar inteiro e 435 pés de praia. Torre Sul em obra; a Torre Norte, das unidades de canto, tem início previsto no 4º tri/2026.</p>
-        <div class="foot"><div><b>US$ 5,1 mi</b><span>a partir de · Torre Sul prevista para 2028</span></div><span class="go">Ver apresentação →</span></div></div>
+    <a class="card" data-k="ready" data-slug="viceroy" href="viceroy/">
+      <div class="bg" style="background-image:url(assets/viceroy.jpg?v=2);background-position:50% 0%"></div>
+      <span class="badge ready">Pronto para morar</span>
+      <div class="body"><small>Brickell · 77 SE 5th Street</small><h3>Viceroy Brickell</h3>
+        <p>Residências com a marca Viceroy no coração de Brickell, prontas para morar. Destaque para a Upper Penthouse 01, com vista para a baía.</p>
+        <div class="foot"><div><b>US$ 609 mil</b><span>a partir de · unidades do incorporador</span></div><span class="go">Ver apresentação →</span></div></div>
+    </a>
+    <a class="card" data-k="build" data-slug="ella" href="ella/">
+      <div class="bg" style="background-image:url(assets/ella.jpg)"></div>
+      <span class="badge">Em construção</span>
+      <div class="body"><small>North Beach · Miami Beach</small><h3>Ella Miami Beach</h3>
+        <p>Prédio boutique de 10 andares da Arquitectonica a duas quadras do mar, com aluguel de curto prazo permitido. Estrutura concluída: 30% até 60 dias e 70% na entrega.</p>
+        <div class="foot"><div><b>US$ 633 mil</b><span>a partir de · entrega prevista abril/2027</span></div><span class="go">Ver apresentação →</span></div></div>
+    </a>
+  </div></div><div class="tier"><h4>A partir de US$ 750 mil</h4><div class="grid">
+    <a class="card" data-k="pre" data-slug="delano" href="delano/">
+      <div class="bg" style="background-image:url(assets/delano.jpg)"></div>
+      <span class="badge">Pré-construção</span>
+      <div class="body"><small>Downtown Miami · 400 Biscayne Blvd</small><h3>Delano Residences</h3>
+        <p>O segundo supertall de Miami: 90 andares em frente à Biscayne Bay, marca Delano, observatório público e coleção com aluguel flexível.</p>
+        <div class="foot"><div><b>US$ 755 mil</b><span>a partir de · entrega estimada 2031</span></div><span class="go">Ver apresentação →</span></div></div>
     </a>
     <a class="card" data-k="launch" data-slug="beach-house" href="beach-house/">
       <div class="bg" style="background-image:url(assets/beach-house.jpg)"></div>
@@ -177,17 +180,18 @@ a{color:inherit}
         <p>Torre concluída e decorada ao lado da lagoa de SoLé Mia. Últimas unidades, com chaves no closing e sem espera de obra.</p>
         <div class="foot"><div><b>Últimas unidades</b><span>by Turnberry</span></div><span class="go">Ver apresentação →</span></div></div>
     </a>
-    <a class="card" data-k="ready" data-slug="viceroy" href="viceroy/">
-      <div class="bg" style="background-image:url(assets/viceroy.jpg?v=2);background-position:50% 0%"></div>
-      <span class="badge ready">Pronto para morar</span>
-      <div class="body"><small>Brickell · 77 SE 5th Street</small><h3>Viceroy Brickell</h3>
-        <p>Residências com a marca Viceroy no coração de Brickell, prontas para morar. Destaque para a Upper Penthouse 01, com vista para a baía.</p>
-        <div class="foot"><div><b>US$ 609 mil</b><span>a partir de · unidades do incorporador</span></div><span class="go">Ver apresentação →</span></div></div>
+  </div></div><div class="tier"><h4>A partir de US$ 5 milhões</h4><div class="grid one">
+    <a class="card" data-k="build" data-slug="st-regis-sunny-isles" href="st-regis-sunny-isles/">
+      <div class="bg" style="background-image:url(assets/st-regis-sunny-isles.jpg?v=2)"></div>
+      <span class="badge">Em construção · Torre Sul</span>
+      <div class="body"><small>Sunny Isles Beach · 18801 Collins Ave</small><h3>St. Regis Residences</h3>
+        <p>Duas torres de 62 andares à beira-mar com serviço de mordomo St. Regis, spa de andar inteiro e 435 pés de praia. Torre Sul em obra; a Torre Norte, das unidades de canto, tem início previsto no 4º tri/2026.</p>
+        <div class="foot"><div><b>US$ 5,1 mi</b><span>a partir de · Torre Sul prevista para 2028</span></div><span class="go">Ver apresentação →</span></div></div>
     </a>
-  </div></div>
+  </div></div></div>
   <div class="city" data-city="orlando"><div class="ch"><h3>Orlando</h3><span>Casas de férias perto da Disney · <b class="cn"></b></span></div>
   <a class="mkt" data-slug="por-que-orlando" href="por-que-orlando/"><div class="bg" style="background-image:url(assets/og/por-que-orlando.jpg)"></div><div><small>Mercado · apresentação institucional</small><b>Por que investir em Orlando</b><span>Turismo recorde, empregos, população, Space Coast e o preço de entrada bem abaixo de Miami.</span></div><em>Ver apresentação →</em></a>
-  <div class="grid">
+  <div class="tier"><h4>A partir de US$ 350 mil</h4><div class="grid one">
     <a class="card" data-k="launch" data-slug="the-hub-garden" href="the-hub-garden/">
       <div class="bg" style="background-image:url(assets/the-hub-garden.jpg)"></div>
       <span class="badge launch">Lançamento</span>
@@ -195,6 +199,7 @@ a{color:inherit}
         <p>Townhomes de 3 suítes com loft e garden privativo com jacuzzi, num condomínio com clubhouse e piscina a menos de 20 minutos da Disney.</p>
         <div class="foot"><div><b>US$ 389 mil</b><span>townhome padrão · The Hub</span></div><span class="go">Ver apresentação →</span></div></div>
     </a>
+  </div></div><div class="tier"><h4>A partir de US$ 600 mil</h4><div class="grid one">
     <a class="card" data-k="ready" data-slug="windsor-cay" href="windsor-cay/">
       <div class="bg" style="background-image:url(assets/windsor-cay.jpg)"></div>
       <span class="badge ready">Prontas e em construção</span>
@@ -202,7 +207,9 @@ a{color:inherit}
         <p>Casas de férias da Pulte Homes de 5 a 10 quartos, todas com piscina privativa aquecida, num resort com rio lento e toboáguas a cerca de 10 km da Disney.</p>
         <div class="foot"><div><b>US$ 625 mil</b><span>a partir de · Pulte Homes</span></div><span class="go">Ver apresentação →</span></div></div>
     </a>
-  </div>
+  </div></div>
+  <div class="deep"><div class="ch"><h3>Para aprofundar</h3><span>Quem somos e como conduzimos a compra</span></div>
+  <a class="mkt" data-slug="institucional" href="institucional/"><div class="bg" style="background-image:url(assets/og/institucional.jpg)"></div><div><small>Institucional · Celebrity Global Realty</small><b>Quem somos</b><span>Quem conduz a sua compra, por que a Flórida, estratégias de investimento e o atendimento de ponta a ponta.</span></div><em>Ver apresentação →</em></a></div>
 </div></section>
 
 <section class="band"><div class="wrap">
@@ -247,7 +254,8 @@ document.querySelectorAll(".who button").forEach(b=>b.onclick=()=>setC(b.dataset
 const f=document.getElementById("f");
 f.onclick=e=>{const b=e.target.closest("button");if(!b)return;f.querySelectorAll("button").forEach(x=>x.classList.toggle("on",x===b));
   document.querySelectorAll(".card").forEach(a=>a.style.display=(b.dataset.k==="all"||a.dataset.k===b.dataset.k)?"":"none");cnt()};
-function cnt(){document.querySelectorAll(".city").forEach(c=>{const n=[...c.querySelectorAll(".card")].filter(a=>a.style.display!=="none").length;c.style.display=n?"":"none";c.querySelector(".cn").textContent=n+(n===1?" empreendimento":" empreendimentos")})}cnt();
+{const A=[...document.querySelectorAll(".card")],n=k=>A.filter(a=>k.includes(a.dataset.k)).length;n1.textContent=A.length;n2.textContent=n(["launch","pre"]);n3.textContent=n(["build"]);n4.textContent=n(["ready"]);}
+function cnt(){document.querySelectorAll(".tier").forEach(t=>{t.style.display=[...t.querySelectorAll(".card")].some(a=>a.style.display!=="none")?"":"none"});document.querySelectorAll(".city").forEach(c=>{const n=[...c.querySelectorAll(".card")].filter(a=>a.style.display!=="none").length;c.style.display=n?"":"none";c.querySelector(".cn").textContent=n+(n===1?" empreendimento":" empreendimentos")})}cnt();
 </script>
 </body>
 </html>
