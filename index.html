@@ -97,6 +97,7 @@ a{color:inherit}
 
 @media(max-width:900px){.grid,.contact .row,.pts{grid-template-columns:1fr}.nums{grid-template-columns:1fr 1fr}.card{min-height:460px}}
 @media(max-width:560px){.wrap{padding:0 16px}.top{flex-wrap:wrap}.top img{width:120px}.who span{display:none}.hero p{font-size:17px}.hero h1{font-size:36px;letter-spacing:.03em}.hero .wrap{width:100%}.card .body{padding:24px 20px 22px}.card .foot{flex-direction:column;align-items:flex-start}.band{padding:80px 0}.list{padding:72px 0 60px}}
+.cta.ghost{background:transparent;border:1px solid rgba(255,255,255,.6);margin-left:8px}
 </style>
 </head>
 <body>
@@ -111,7 +112,7 @@ a{color:inherit}
       <p class="kicker" style="color:var(--gold)">Celebrity Global Realty · Miami e Orlando</p>
       <h1>Apresentações<span>Empreendimentos selecionados</span></h1>
       <p>Lançamentos, prédios e casas prontas em Miami e Orlando, escolhidos para investidores brasileiros: tabela atualizada, plantas, forma de pagamento e fotos de cada projeto.</p>
-      <a class="cta" href="#projetos">Ver empreendimentos ↓</a>
+      <a class="cta" href="#projetos">Ver empreendimentos ↓</a> <a class="cta ghost" data-slug="institucional" href="institucional/">Quem somos →</a>
     </div></div>
     <div class="nums">
       <div><b id="n1"></b><small>empreendimentos</small></div>
@@ -126,6 +127,7 @@ a{color:inherit}
   <p class="kicker">Portfólio</p>
   <h2>Escolha o empreendimento</h2>
   <p class="lead">Cada apresentação traz a disponibilidade da tabela do incorporador, plantas, simulador de pagamento e contato direto para reservar.</p>
+  <a class="mkt" data-slug="institucional" href="institucional/"><div class="bg" style="background-image:url(assets/og/institucional.jpg)"></div><div><small>Institucional · Celebrity Global Realty</small><b>Quem somos</b><span>Quem conduz a sua compra, por que a Flórida, estratégias de investimento e o atendimento de ponta a ponta.</span></div><em>Ver apresentação →</em></a>
   <div class="filters" id="f"><button class="on" data-k="all">Todos</button><button data-k="launch">Pré-lançamento</button><button data-k="pre">Pré-construção</button><button data-k="build">Em construção</button><button data-k="ready">Pronto para morar</button></div>
   <div class="city" data-city="miami"><div class="ch"><h3>Miami</h3><span>Downtown, Brickell, Edgewater, Miami Beach e North Miami · <b class="cn"></b></span></div>
   <a class="mkt" data-slug="por-que-miami" href="por-que-miami/"><div class="bg" style="background-image:url(assets/mkt-miami.jpg)"></div><div><small>Mercado · apresentação institucional</small><b>Por que investir em Miami</b><span>Economia, conexões, impostos, qualidade de vida e quanto US$ 1 milhão compra em cada capital do mundo.</span></div><em>Ver apresentação →</em></a>
@@ -223,8 +225,6 @@ a{color:inherit}
         <div class="foot"><div><b>US$ 893 mil</b><span>casa disponível a partir de · Park Square</span></div><span class="go">Ver apresentação →</span></div></div>
     </a>
   </div></div>
-  <div class="deep"><div class="ch"><h3>Para aprofundar</h3><span>Quem somos e como conduzimos a compra</span></div>
-  <a class="mkt" data-slug="institucional" href="institucional/"><div class="bg" style="background-image:url(assets/og/institucional.jpg)"></div><div><small>Institucional · Celebrity Global Realty</small><b>Quem somos</b><span>Quem conduz a sua compra, por que a Flórida, estratégias de investimento e o atendimento de ponta a ponta.</span></div><em>Ver apresentação →</em></a></div>
 </div></section>
 
 <section class="band"><div class="wrap">
@@ -259,7 +259,7 @@ function setC(c){const p=P[c]||P.jose;
   document.querySelectorAll(".who button").forEach(b=>b.classList.toggle("on",b.dataset.c===c));
   ["nm","rl","kick","ph","lic"].forEach(k=>document.getElementById(k).textContent=p[k]);
   document.getElementById("wa").href="https://wa.me/"+p.wa+"?text="+encodeURIComponent("Olá "+p.nm.split(" ")[0]+", vi as apresentações da Celebrity e quero mais informações.");
-  document.querySelectorAll(".card,.mkt").forEach(a=>a.href=p.pre+a.dataset.slug+"/");
+  document.querySelectorAll("a[data-slug]").forEach(a=>a.href=p.pre+a.dataset.slug+"/");
   try{localStorage.setItem("cgr_c",c)}catch(e){}
 }
 let c="jose";const q=new URLSearchParams(location.search).get("c");
